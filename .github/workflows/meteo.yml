@@ -32,6 +32,20 @@ jobs:
         $response = Invoke-RestMethod -Uri $url -Method Get
         $response | ConvertTo-Json -Depth 3
 
+
+    - name: Vérifier si le serveur est en marche
+      run: |
+        try {
+          $url = "http://localhost:5001/submit"
+          $response = Invoke-RestMethod -Uri $url -Method Get -TimeoutSec 5
+          Write-Host "Le serveur est en marche, envoie la requête."
+        } catch {
+          Write-Host "Le serveur n'est pas en marche, démarrage du serveur..."
+          Start-Process "python" -ArgumentList "path/to/your/server/script.py"
+          Start-Sleep -Seconds 10 # Attendre que le serveur démarre
+          Write-Host "Serveur démarré, envoie la requête."
+        }
+
     - name: Test de Pays Togo
       run: |
         $url = "http://localhost:5001/submit"

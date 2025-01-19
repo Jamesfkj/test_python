@@ -46,9 +46,9 @@ jobs:
           Write-Host "Serveur démarré, envoie la requête."
         }
 
-    - name: Test de Pays Togo
+    - name: Test de notre projet
       run: |
-        $response = Invoke-WebRequest -Uri "http://localhost:5001/submit" -Method POST -Body "pays=France" -Headers @{ "Authorization" = "Bearer ${{ secrets.API_KEY }}" }
+        $response = Invoke-WebRequest -Uri "http://localhost:5001/submit" -Method POST -Body "city=Atakpame" -Headers @{ "Authorization" = "Bearer ${{ secrets.API_KEY }}" }
         Write-Output "Response: $($response)"
         if ($response.StatusCode -eq 200) {
             Write-Host "Test réussi"

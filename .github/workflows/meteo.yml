@@ -1,4 +1,4 @@
-name: Géographie des pays
+name: Test de météorologie
 
 on: 
   push: 
@@ -56,4 +56,3 @@ jobs:
     - name: Stop server
       run: |
         Stop-Process -Name "python" -Force
-

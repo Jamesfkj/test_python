@@ -30,7 +30,7 @@ jobs:
 
     - name: Test de l'api de météo
       run: |
-        $url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=$env:API_KEY&units=metric"
+        $url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${{ secrets.API_KEY }}&units=metric"
         $response = Invoke-RestMethod -Uri $url -Method Get
         $response | ConvertTo-Json -Depth 3
 

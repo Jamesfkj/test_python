@@ -28,13 +28,16 @@ jobs:
 
     - name: Vérifier si le serveur est en marche
       run: |
-        $process = Get-Process python -ErrorAction SilentlyContinue
-        if ($null -eq $process) {
+        $url = "http://127.0.0.1:5001"
+        try {
+          $response = Invoke-WebRequest -Uri $url -Method Get -ErrorAction Stop
+          if ($response.StatusCode -eq 200) {
+            Write-Host "Le serveur est déjà en marche."
+          }
+        } catch {
           Write-Host "Le serveur n'est pas en marche, démarrage..."
           Start-Process -FilePath "python" -ArgumentList "expose_py.py" -PassThru -Wait
           Start-Sleep -Seconds 10  # Augmenter le délai si nécessaire
-        } else {
-          Write-Host "Le serveur est déjà en marche."
         }
 
     - name: Test de l'api de météo

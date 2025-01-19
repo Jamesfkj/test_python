@@ -1,0 +1,42 @@
+name: Test Pays
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test_pays:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install requests
+
+    - name: Start server
+      run: |
+        nohup python expose_py.py &  # Remplacez par le nom de votre script
+        sleep 5  # Attendre quelques secondes pour s'assurer que le serveur est lancé
+
+    - name: Test pays France
+      run: |
+        curl -X POST -d "pays=France" http://127.0.0.1:5001/soumettre
+        # Vous pouvez ajouter plus de tests pour d'autres pays si nécessaire.
+
+    - name: Stop server
+      run: |
+        pkill -f "python"  # Tuer le processus Python si nécessaire

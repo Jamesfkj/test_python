@@ -48,7 +48,7 @@ jobs:
 
     - name: Test de notre projet
       run: |
-        $response = Invoke-WebRequest -Uri "http://localhost:5001/submit" -Method POST -Body "city=Atakpame" -Headers @{ "Authorization" = "Bearer ${{ secrets.API_KEY }}" }
+        $response = Invoke-WebRequest -Uri "http://localhost:5001/submit" -Method POST -Body city='Atakpame' -Headers @{ "Authorization" = "Bearer fc9a84b33a13593aca9630e7b38830d1" }
         Write-Output "Response: $($response)"
         if ($response.StatusCode -eq 200) {
             Write-Host "Test réussi"

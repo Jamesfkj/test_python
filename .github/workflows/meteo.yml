@@ -64,4 +64,4 @@ jobs:
         
     - name: Stop server
       run: |
-        Stop-Process -Name "python" -Force  # Assurez-vous que le nom du processus est correct
+        Stop-Process -Name "python" -Force  

@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_pays:
-    runs-on: windows-latest  # Exécuter sur Windows
+    runs-on: windows-latest  
 
     steps:
     - name: Checkout code
@@ -29,10 +29,21 @@ jobs:
     - name: Start server
       run: |
         Start-Process -FilePath "python" -ArgumentList "expose_py.py" -PassThru
-        Start-Sleep -Seconds 5  # Pause pour laisser le serveur démarrer
+        Start-Sleep -Seconds 5  
 
     - name: Check if server is running
       run: Get-Process python
+
+    - name: Vérification API
+      run: |
+        # Définir l'URL de l'API pour la France
+        $url = "https://restcountries.com/v3.1/name/France"
+
+        # Faire la requête GET pour récupérer les données JSON
+        $response = Invoke-RestMethod -Uri $url -Method Get
+
+        # Afficher la réponse JSON dans le terminal
+        $response | ConvertTo-Json -Depth 3
 
     - name: Test pays France
       run: |

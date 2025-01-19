@@ -42,16 +42,13 @@ jobs:
         } catch {
           Write-Host "Le serveur n'est pas en marche, démarrage du serveur..."
           Start-Process "python" -ArgumentList "path/to/your/server/script.py"
-          Start-Sleep -Seconds 10 # Attendre que le serveur démarre
+          Start-Sleep -Seconds 15 # Attendre que le serveur démarre
           Write-Host "Serveur démarré, envoie la requête."
         }
 
     - name: Test de Pays Togo
       run: |
-        $url = "http://localhost:5001/submit"
-        $body = "pays=France"
-        $headers = @{ "Authorization" = "Bearer ${{ secrets.API_KEY }}" }
-        $response = Invoke-RestMethod -Uri $url -Method POST -Body $body -Headers $headers
+        $response = Invoke-RestMethod -Uri "http://localhost:5001/submit" -Method POST -Body "pays=France" -Headers @{ "Authorization" = "Bearer ${{ secrets.API_KEY }}" }
         Write-Output "Response: $($response)"
         if ($response.StatusCode -eq 200) {
             Write-Host "Test réussi"

@@ -62,6 +62,4 @@ jobs:
               }
           }
         
-    - name: Stop server
-      run: |
-        Stop-Process -Name "python" -Force  
+  

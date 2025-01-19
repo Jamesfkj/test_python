@@ -26,13 +26,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests python-dotenv
 
-    - name: Démarrer le serveur
-      run: |
-        Start-Process -FilePath "python" -ArgumentList "expose_py.py" -PassThru -Wait
-        Start-Sleep -Seconds 10  # Augmenter le délai si nécessaire
-
     - name: Vérifier si le serveur est en marche
-      run: Get-Process python
+      run: |
+        $process = Get-Process python -ErrorAction SilentlyContinue
+        if ($null -eq $process) {
+          Write-Host "Le serveur n'est pas en marche, démarrage..."
+          Start-Process -FilePath "python" -ArgumentList "expose_py.py" -PassThru -Wait
+          Start-Sleep -Seconds 10  # Augmenter le délai si nécessaire
+        } else {
+          Write-Host "Le serveur est déjà en marche."
+        }
 
     - name: Test de l'api de météo
       run: |

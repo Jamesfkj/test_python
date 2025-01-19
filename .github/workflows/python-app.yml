@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_pays:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Utilisation de Windows au lieu d'Ubuntu
 
     steps:
     - name: Checkout code
@@ -24,16 +24,19 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests python-dotenv  # Ajout de requests et dotenv
+        pip install requests python-dotenv  # Installation des bibliothèques nécessaires
 
     - name: Start server
       run: |
-        python expose_py.py &  # Remplacez par le nom de votre script
-        sleep 5  # Pause pour s'assurer que le serveur est bien lancé
+        Start-Process -NoNewWindow -FilePath "python" -ArgumentList "expose_py.py"
+        Start-Sleep -Seconds 5  # Pause pour laisser le serveur démarrer
+      shell: powershell
 
     - name: Test pays France
       run: |
-        curl -X POST -d "pays=France" http://127.0.0.1:5001/soumettre || exit 1
+        Invoke-WebRequest -Uri "http://127.0.0.1:5001/soumettre" -Method POST -Body "pays=France" -ContentType "application/x-www-form-urlencoded"
+      shell: powershell
 
     - name: Stop server
-      run: pkill -f "python expose_py.py"
+      run: Get-Process python | Stop-Process -Force
+      shell: powershell

@@ -26,8 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests python-dotenv
 
-    
-
     - name: Test de l'api de météo
       run: |
         $url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${{ secrets.API_KEY }}&units=metric"
@@ -49,4 +47,4 @@ jobs:
       
     - name: Stop server
       run: |
-        Stop-Process -Name "python" -Force
+        Stop-Process -Name "python" -Force  # Assurez-vous que le nom du processus est correct

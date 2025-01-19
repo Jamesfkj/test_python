@@ -26,19 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests python-dotenv
 
-    - name: Vérifier si le serveur est en marche
-      run: |
-        $url = "http://127.0.0.1:5001"
-        try {
-          $response = Invoke-WebRequest -Uri $url -Method Get -ErrorAction Stop
-          if ($response.StatusCode -eq 200) {
-            Write-Host "Le serveur est déjà en marche."
-          }
-        } catch {
-          Write-Host "Le serveur n'est pas en marche, démarrage..."
-          Start-Process -FilePath "python" -ArgumentList "expose_py.py" -PassThru -Wait
-          Start-Sleep -Seconds 10  # Augmenter le délai si nécessaire
-        }
+    
 
     - name: Test de l'api de météo
       run: |

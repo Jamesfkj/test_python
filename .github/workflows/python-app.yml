@@ -24,19 +24,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install requests
+        pip install requests python-dotenv  # Ajout de requests et dotenv
 
     - name: Start server
       run: |
-        nohup python expose_py.py &  # Remplacez par le nom de votre script
-        sleep 5  # Attendre quelques secondes pour s'assurer que le serveur est lancé
+        python expose_py.py &  # Remplacez par le nom de votre script
+        sleep 5  # Pause pour s'assurer que le serveur est bien lancé
 
     - name: Test pays France
       run: |
-        curl -X POST -d "pays=France" http://127.0.0.1:5001/soumettre
-        # Vous pouvez ajouter plus de tests pour d'autres pays si nécessaire.
+        curl -X POST -d "pays=France" http://127.0.0.1:5001/soumettre || exit 1
 
     - name: Stop server
-      run: |
-        pkill -f "python"  # Tuer le processus Python si nécessaire
+      run: pkill -f "python expose_py.py"

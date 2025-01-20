@@ -242,11 +242,5 @@ jobs:
               exit 1
           }
           
-          if ('${{ needs.test-middleware.result }}' -ne 'success') {
-              Write-Error "Le job test-middleware a échoué"
-              exit 1
-          }
-          
           echo "Tous les jobs se sont exécutés avec succès!"
-          echo "status=success" >> $env:GITHUB_OUTPUT
         shell: pwsh

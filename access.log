@@ -512,3 +512,97 @@
 2025-01-19 17:10:01 - Adresse IP du client : 127.0.0.1
 2025-01-19 17:10:02 - Requête reçue : /resultat?city=Paris&temperature=0.47&weather=overcast%20clouds&humidity=89 à 2025-01-19 17:10:02.336698
 2025-01-19 17:10:02 - Adresse IP du client : 127.0.0.1
+2025-01-19 20:12:03 - Requête reçue : /soumettre à 2025-01-19 20:12:03.786784
+2025-01-19 20:12:03 - Adresse IP du client : 127.0.0.1
+2025-01-19 20:12:05 - Requête reçue : /resultat?pays=France&capital=Paris&population=67391582&languages=French&region=Europe&area=551695.0 à 2025-01-19 20:12:05.282220
+2025-01-19 20:12:05 - Adresse IP du client : 127.0.0.1
+2025-01-19 20:14:16 - Requête reçue : /soumettre à 2025-01-19 20:14:16.511943
+2025-01-19 20:14:16 - Adresse IP du client : 127.0.0.1
+2025-01-19 20:14:17 - Requête reçue : /resultat?pays=France&capital=Paris&population=67391582&languages=French&region=Europe&area=551695.0 à 2025-01-19 20:14:17.615353
+2025-01-19 20:14:17 - Adresse IP du client : 127.0.0.1
+2025-01-19 21:06:35 - Requête reçue : /submit à 2025-01-19 21:06:35.433444
+2025-01-19 21:06:35 - Adresse IP du client : 127.0.0.1
+2025-01-19 21:06:36 - Requête reçue : /resultat?city=Paris&temperature=0.31&weather=overcast%20clouds&humidity=91 à 2025-01-19 21:06:36.149384
+2025-01-19 21:06:36 - Adresse IP du client : 127.0.0.1
+2025-01-19 21:22:55 - Requête reçue : / à 2025-01-19 21:22:55.073984
+2025-01-19 21:22:55 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:07:58 - Requête reçue : /submit à 2025-01-19 22:07:58.062328
+2025-01-19 22:07:58 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:07:59 - Requête reçue : /resultat?pays=France&capital=Paris&population=67391582&languages=French&region=Europe&area=551695.0 à 2025-01-19 22:07:59.639403
+2025-01-19 22:07:59 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:09:22 - Requête reçue : /submit à 2025-01-19 22:09:22.159129
+2025-01-19 22:09:22 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:09:23 - Requête reçue : /resultat?pays=France&capital=Paris&population=67391582&languages=French&region=Europe&area=551695.0 à 2025-01-19 22:09:23.137944
+2025-01-19 22:09:23 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:10:20 - Requête reçue : /submit à 2025-01-19 22:10:20.241871
+2025-01-19 22:10:20 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:11:05 - Requête reçue : /submit à 2025-01-19 22:11:05.973564
+2025-01-19 22:11:05 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:11:07 - Requête reçue : /resultat?city=Paris&temperature=0.31&weather=mist&humidity=92 à 2025-01-19 22:11:07.754812
+2025-01-19 22:11:07 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:28:01 - Requête reçue : /submit à 2025-01-19 22:28:01.746796
+2025-01-19 22:28:01 - Adresse IP du client : 127.0.0.1
+2025-01-19 22:28:02 - Requête reçue : /resultat?city=Atakpame&temperature=25.31&weather=clear%20sky&humidity=66 à 2025-01-19 22:28:02.512751
+2025-01-19 22:28:02 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:13:51 - Requête reçue : / à 2025-01-20 09:13:51.543608
+2025-01-20 09:13:51 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:13:51 - Requête reçue : /favicon.ico à 2025-01-20 09:13:51.754653
+2025-01-20 09:13:51 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:13:53 - Requête reçue : /pays à 2025-01-20 09:13:53.230367
+2025-01-20 09:13:53 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:13:59 - Requête reçue : /soumettre à 2025-01-20 09:13:59.061070
+2025-01-20 09:13:59 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:14:13 - Requête reçue : /soumettre à 2025-01-20 09:14:13.538585
+2025-01-20 09:14:13 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:14:14 - Requête reçue : /resultat?pays=Ghana&capital=Accra&population=31072945&languages=English&region=Africa&area=238533.0 à 2025-01-20 09:14:14.726085
+2025-01-20 09:14:14 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:24:36 - Requête reçue : / à 2025-01-20 09:24:36.642566
+2025-01-20 09:24:36 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:24:39 - Requête reçue : /meteo à 2025-01-20 09:24:39.455789
+2025-01-20 09:24:39 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:24:42 - Requête reçue : /submit à 2025-01-20 09:24:42.402367
+2025-01-20 09:24:42 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:24:42 - Requête reçue : /resultat?city=Paris&temperature=-1.01&weather=mist&humidity=96 à 2025-01-20 09:24:42.857499
+2025-01-20 09:24:42 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:25:36 - Requête reçue : / à 2025-01-20 09:25:36.804812
+2025-01-20 09:25:36 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:25:39 - Requête reçue : /meteo à 2025-01-20 09:25:39.270942
+2025-01-20 09:25:39 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:25:42 - Requête reçue : /submit à 2025-01-20 09:25:42.518440
+2025-01-20 09:25:42 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:25:43 - Requête reçue : /resultat?city=Paris&temperature=-1.01&weather=mist&humidity=96 à 2025-01-20 09:25:43.556314
+2025-01-20 09:25:43 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:09 - Requête reçue : / à 2025-01-20 09:29:09.724634
+2025-01-20 09:29:09 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:13 - Requête reçue : /meteo à 2025-01-20 09:29:13.476742
+2025-01-20 09:29:13 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:15 - Requête reçue : /submit à 2025-01-20 09:29:15.760325
+2025-01-20 09:29:15 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:16 - Requête reçue : /resultat?city=Paris&temperature=-1.01&weather=mist&humidity=96 à 2025-01-20 09:29:16.554347
+2025-01-20 09:29:16 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:17 - Requête reçue : / à 2025-01-20 09:29:17.606972
+2025-01-20 09:29:17 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:18 - Requête reçue : /pays à 2025-01-20 09:29:18.938273
+2025-01-20 09:29:18 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:21 - Requête reçue : /soumettre à 2025-01-20 09:29:21.941485
+2025-01-20 09:29:21 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:23 - Requête reçue : /resultat?pays=Togo&capital=Lom%E9&population=8278737&languages=French&region=Africa&area=56785.0 à 2025-01-20 09:29:23.136884
+2025-01-20 09:29:23 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:29:24 - Requête reçue : /pays à 2025-01-20 09:29:24.642985
+2025-01-20 09:29:24 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:54:29 - Requête reçue : / à 2025-01-20 09:54:29.176546
+2025-01-20 09:54:29 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:54:30 - Requête reçue : /pays à 2025-01-20 09:54:30.814103
+2025-01-20 09:54:30 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:54:35 - Requête reçue : /soumettre à 2025-01-20 09:54:35.288473
+2025-01-20 09:54:35 - Adresse IP du client : 127.0.0.1
+2025-01-20 09:54:36 - Requête reçue : /resultat?pays=suisse&capital=Bern&population=8654622&languages=French,%20Swiss%20German,%20Italian,%20Romansh&region=Europe&area=41284.0 à 2025-01-20 09:54:36.378315
+2025-01-20 09:54:36 - Adresse IP du client : 127.0.0.1
+2025-01-20 10:17:29 - Requête reçue : /pays à 2025-01-20 10:17:29.000946
+2025-01-20 10:17:29 - Adresse IP du client : 127.0.0.1
+2025-01-20 10:17:36 - Requête reçue : /meteo à 2025-01-20 10:17:36.074463
+2025-01-20 10:17:36 - Adresse IP du client : 127.0.0.1
+2025-01-20 10:17:43 - Requête reçue : /pays à 2025-01-20 10:17:43.873106
+2025-01-20 10:17:43 - Adresse IP du client : 127.0.0.1
+2025-01-20 10:17:50 - Requête reçue : /meteo à 2025-01-20 10:17:50.607709
+2025-01-20 10:17:50 - Adresse IP du client : 127.0.0.1

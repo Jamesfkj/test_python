@@ -14,7 +14,7 @@ class ConsultMeteo(BaseHTTPRequestHandler):
     URL_PAYS = "https://restcountries.com/v3.1/name/"
 
     def do_GET(self):
-        log_request(self)  # Interception de la requête
+        log_request(self)  
         routes = {
             '/': 'acceuil.html',
             '/meteo': 'ville.html',
@@ -44,9 +44,9 @@ class ConsultMeteo(BaseHTTPRequestHandler):
             self.send_error(404, 'Fichier introuvable')
 
     def gerer_formulaire(self):
-        longueur_contenu = int(self.headers.get('Content-Length', 0))
-        donnees_post = self.rfile.read(longueur_contenu).decode('utf-8')
-        params = parse_qs(donnees_post)
+        longueur_contenu = int(self.headers.get('Content-Length', 0)) #recuperer la taille des données envoyes
+        donnees_post = self.rfile.read(longueur_contenu).decode('utf-8') #lire et décoder les données envoyées
+        params = parse_qs(donnees_post) #changer les données en dico
         ville, pays = params.get('city', [None])[0], params.get('pays', [None])[0]
         if ville:
             self.recuperer_meteo(ville)
@@ -59,7 +59,7 @@ class ConsultMeteo(BaseHTTPRequestHandler):
         url = f"{self.URL_METEO}?q={ville}&appid={self.CLE_API}&units=metric"
         try:
             reponse = requests.get(url)
-            reponse.raise_for_status()
+            reponse.raise_for_status() #vérifier s'il y a une erreur
             donnees = reponse.json()
             requete = f"city={ville}&temperature={donnees['main']['temp']}&weather={donnees['weather'][0]['description']}&humidity={donnees['main']['humidity']}"
             self.rediriger(f'/resultat?{requete}')
@@ -75,7 +75,7 @@ class ConsultMeteo(BaseHTTPRequestHandler):
             requete = (
                 f"pays={pays}&capital={donnees.get('capital', ['Inconnu'])[0]}&"
                 f"population={donnees.get('population', 'Inconnue')}&"
-                f"languages={', '.join(donnees.get('languages', {}).values())}&"
+                f"languages={', '.join(donnees.get('languages', {}).values())}&" #recuperer la clé langauge avec ses valeurs et les transformer en une liste avec join avec l'espage et la virgule
                 f"region={donnees.get('region', 'Inconnue')}&"
                 f"area={donnees.get('area', 'Inconnue')}"
             )

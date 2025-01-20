@@ -203,18 +203,21 @@ jobs:
         run: |
           $endpoints = @('/meteo', '/pays', '/')
           foreach ($endpoint in $endpoints) {
-              try {
-                  $response = Invoke-WebRequest -Uri "http://localhost:5001$endpoint" -ErrorAction Stop
-                  if ($response.StatusCode -ne 200) {
-                      Write-Error "Endpoint $endpoint returned status code $($response.StatusCode)"
-                  } else {
-                      Write-Host "Endpoint $endpoint is responding correctly"
+              Start-Process powershell -ArgumentList {
+                  try {
+                      Write-Host "Testing endpoint: $endpoint"
+                      $response = Invoke-WebRequest -Uri "http://localhost:5001$endpoint" -ErrorAction Stop
+                      if ($response.StatusCode -ne 200) {
+                          Write-Error "Endpoint $endpoint returned status code $($response.StatusCode)"
+                      } else {
+                          Write-Host "Endpoint $endpoint is responding correctly"
+                      }
+                  } catch {
+                      Write-Error "Failed to reach $endpoint"
+                      Write-Host "Error details: $($_.Exception.Message)"
                   }
-              } catch {
-                  Write-Error "Failed to reach $endpoint"
               }
           }
-
         shell: pwsh
 
   test-middleware:

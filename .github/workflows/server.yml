@@ -280,7 +280,7 @@ jobs:
       - name: Test middleware logging
         run: |
           # Tester les requêtes dans un autre terminal sans arrêter le serveur
-          Start-Process pwsh -ArgumentList "-Command Invoke-WebRequest -Uri 'http://localhost:${{ env.SERVER_PORT }}/ville' -ErrorAction Stop"
+          Start-Process pwsh -ArgumentList "-Command Invoke-WebRequest -Uri 'http://localhost:${{ env.SERVER_PORT }}/meteo' -ErrorAction Stop"
           Start-Process pwsh -ArgumentList "-Command Invoke-WebRequest -Uri 'http://localhost:${{ env.SERVER_PORT }}/pays' -ErrorAction Stop"
           
           # Attendre un peu pour que les requêtes soient traitées
@@ -290,7 +290,7 @@ jobs:
           $logContent = Get-Content -Path access.log
           
           # Vérifier si les requêtes ont été loggées correctement
-          if (-not ($logContent -match "GET /ville" -and $logContent -match "GET /pays")) {
+          if (-not ($logContent -match "GET /meteo" -and $logContent -match "GET /pays")) {
             Write-Error "Les entrées de log attendues sont manquantes"
             exit 1
           }

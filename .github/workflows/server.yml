@@ -220,27 +220,4 @@ jobs:
           }
         shell: pwsh
 
-  final-validation:
-    needs: [verify-structure, verify-server-dependencies]
-    runs-on: windows-latest
-    outputs:
-      status: ${{ steps.validation.outputs.status }}
-    steps:
-      - name: Final Validation
-        id: validation
-        run: |
-          echo "Vérification finale de tous les jobs..."
-          
-          # Vérifie le statut des jobs précédents
-          if ('${{ needs.verify-structure.result }}' -ne 'success') {
-              Write-Error "Le job verify-structure a échoué"
-              exit 1
-          }
-          
-          if ('${{ needs.verify-server-and-dependencies.result }}' -ne 'success') {
-              Write-Error "Le job verify-server-and-dependencies a échoué"
-              exit 1
-          }
-          
-          echo "Tous les jobs se sont exécutés avec succès!"
-        shell: pwsh
+  

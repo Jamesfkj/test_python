@@ -7,10 +7,6 @@ on:
   pull_request:
     branches:
       - master
-  workflow_run:
-   workflows: ["Verify Server and Dependencies"]  
-   types:
-      - completed
 
 jobs:
   test_pays:

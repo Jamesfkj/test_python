@@ -264,22 +264,38 @@ jobs:
           }
         shell: pwsh
 
-      - name: Start server
+      - name: Start server if not running
         run: |
-          Start-Process python -ArgumentList "expose_py.py" -NoNewWindow
-          Start-Sleep -Seconds 5
+          # Vérifier si le serveur est déjà en cours d'exécution
+          $serverStatus = Invoke-WebRequest -Uri "http://localhost:${{ env.SERVER_PORT }}/" -ErrorAction SilentlyContinue
+          if ($serverStatus.StatusCode -ne 200) {
+            Write-Host "Le serveur n'est pas en cours d'exécution. Démarrage du serveur..."
+            Start-Process python -ArgumentList "expose_py.py" -NoNewWindow
+            Start-Sleep -Seconds 5
+          } else {
+            Write-Host "Le serveur est déjà en cours d'exécution."
+          }
         shell: pwsh
-
+      
       - name: Test middleware logging
         run: |
-          Invoke-WebRequest -Uri "http://localhost:${{ env.SERVER_PORT }}/ville" -ErrorAction Stop
-          Invoke-WebRequest -Uri "http://localhost:${{ env.SERVER_PORT }}/pays" -ErrorAction Stop
+          # Tester les requêtes dans un autre terminal sans arrêter le serveur
+          Start-Process pwsh -ArgumentList "-Command Invoke-WebRequest -Uri 'http://localhost:${{ env.SERVER_PORT }}/ville' -ErrorAction Stop"
+          Start-Process pwsh -ArgumentList "-Command Invoke-WebRequest -Uri 'http://localhost:${{ env.SERVER_PORT }}/pays' -ErrorAction Stop"
+          
+          # Attendre un peu pour que les requêtes soient traitées
           Start-Sleep -Seconds 2
+          
+          # Lire le contenu du fichier de log
           $logContent = Get-Content -Path access.log
+          
+          # Vérifier si les requêtes ont été loggées correctement
           if (-not ($logContent -match "GET /ville" -and $logContent -match "GET /pays")) {
             Write-Error "Les entrées de log attendues sont manquantes"
             exit 1
           }
+          
+          Write-Host "Les requêtes ont été correctement loggées dans access.log"
         shell: pwsh
 
       - name: Upload logs as artifact

@@ -48,7 +48,6 @@ jobs:
             "property.env",
             "reponse_meteo.html",
             "reponse_pays.html",
-            "requirements.txt",
             "ville.html"
           )
           $missingFiles = @()

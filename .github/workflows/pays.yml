@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - master
+  workflow_run:
+   workflows: [""]  # Le nom exact du workflow 1
+   types:
+      - completed
 
 jobs:
   test_pays:
